@@ -1,0 +1,37 @@
+<!-- 
+
+<header class="music-header">
+  @if (currentPage === 'music') {
+    <ng-container >
+    <button (click)="toggleCurrentPage()" class="home-btn">
+      <i class="pi pi-home"></i>
+    </button>
+  </ng-container>
+  }@else{
+       <ng-template #titleTemplate>
+    <h2 (click)="toggleCurrentPage()">Music Library</h2>
+  </ng-template>
+  }
+
+
+
+
+  <div class="avatar">
+    <img src="{{avatarUrl}}" alt="User Avatar" />
+  </div>
+</header> -->
+
+
+<header class="music-header">
+  <div class="left-content">
+    <h2 [class.hide]="currentPage === 'music'">Music Library</h2>
+
+    <button (click)="server.navigateURL('home')"  class="home-btn" [class.show]="currentPage === 'music'">
+      <i class="pi pi-home"></i>
+    </button>
+  </div>
+
+  <div (click)="toggleCurrentPage()" class="avatar">
+    <img src="{{avatarUrl}}" alt="User Avatar" />
+  </div>
+</header>

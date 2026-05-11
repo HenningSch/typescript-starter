@@ -1,0 +1,72 @@
+<div class="music-container" style="display: none;">
+  <h1>Music Page</h1>
+  <p>This is the music page content.</p>
+
+  <p-progressbar [value]="progress()" mode="indeterminate" styleClass="custom-progressbar"></p-progressbar>
+  <p-button (click)="playAudio()">Load and Play MusicXML</p-button>
+
+  <!-- <audio #audioplayer 
+  [src]="songUrl()"></audio> -->
+    <audio #audioplayer
+  (timeupdate)="onTimeUpdate()" 
+  (loadedmetadata)="onMetadataLoaded()"
+  [src]="songUrl()"></audio>
+  
+
+  <div class="player-controls">
+  <p class="text-sm">Zeit: {{ currentTime() | date:'mm:ss' }} / {{ duration() | date:'mm:ss' }}</p>
+  
+  <!-- Progress Bar -->
+  <input type="range" 
+    [value]="progress()" 
+    (input)="seek($event)" 
+    class="w-full">
+
+    <p>{{progress()}}</p>
+    <p>{{currentTime()}}</p>
+    <p>{{duration()}}</p>
+    
+    <p>{{number()}}</p>
+
+</div>
+</div>
+
+<div class="player-wrapper">
+  <!-- Song Info Bereich (Mittig) -->
+  <div class="info-section">
+    <h2 class="text-xl font-bold">Song Titel</h2>
+    <p class="text-sm text-secondary">Künstler Name</p>
+  </div>
+
+  <!-- Progress Bar Bereich (Mitte) -->
+  <div class="progress-section my-4">
+    <p-progressBar [value]="progress()" [showValue]="false"></p-progressBar>
+    <div class="flex justify-between text-xs mt-1">
+      <span>{{ currentTime() | number:'1.0-0' }}s</span>
+      <span>{{ duration() | number:'1.0-0' }}s</span>
+    </div>
+  </div>
+    <!-- <p-progressbar [value]="progress()" mode="indeterminate" styleClass="custom-progressbar"></p-progressbar> -->
+
+
+  <!-- Steuerung (Unten / Flex-Row) -->
+  <div class="controls-section">
+    <p-button icon="pi pi-step-backward" [rounded]="true" [text]="true" (onClick)="prevSong()"></p-button>
+    
+    <p-button [icon]="isPlaying() ? 'pi pi-pause' : 'pi pi-play'" 
+              [rounded]="true" 
+              severity="primary" 
+              (onClick)="togglePlay()"
+              styleClass="p-button-lg shadow-2">
+    </p-button>
+    
+    <p-button icon="pi pi-step-forward" [rounded]="true" [text]="true" (onClick)="nextSong()"></p-button>
+  </div>
+
+  <!-- Verstecktes Audio-Element -->
+  <audio #audioPlayer 
+    (timeupdate)="onTimeUpdate()" 
+    (loadedmetadata)="onMetadataLoaded()"
+    [src]="songUrl()">
+  </audio>
+</div>

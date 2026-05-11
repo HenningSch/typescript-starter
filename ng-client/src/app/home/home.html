@@ -1,0 +1,30 @@
+
+
+<p-accordion [value]="currentLevel">
+  @for (categorie of categories; track $index) {
+    <p-accordion-panel value="{{categorie.name}}" >
+      <p-accordion-header>{{categorie.name}}</p-accordion-header>
+      <p-accordion-content>
+          <p-carousel [value]="categorie.songs" [numVisible]="2" [numScroll]="2" class="custom-carousel">
+     
+
+          <ng-template let-song pTemplate="item">
+            <div (click)="server.navigateURL('music/'+ song.title)" class="music-card">
+              <div style="height:50%; position:relative;">
+                <img src="{{song.image}}" alt="{{song}}" class="music-image" />
+                @if (song.status) {
+                <p-tag [value]="song.status" [severity]="song.status" class="music-tag" [ngStyle]="{ 'left.px': 5, 'top.px': 5 }" />
+                }</div>
+              <div class="music-info">
+                <h3>{{song.title}}</h3>
+                <span>{{song.artist}}</span>
+                <div class="duration">{{song.duration}}</div>
+              </div>
+            </div>
+
+          </ng-template>
+        </p-carousel> 
+      </p-accordion-content>
+    </p-accordion-panel>
+}
+</p-accordion>

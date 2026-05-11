@@ -1,0 +1,48 @@
+.music-container{
+    min-height: 88vh;
+  min-height: 88dvh;
+}
+
+
+
+.player-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; /* Verteilt Elemente gleichmäßig */
+  height: 100dvh; /* Nutzt die gesamte mobile Bildschirmhöhe */
+  padding: 2rem;
+  box-sizing: border-box;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.controls-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Optimierung für Bildschirmdrehung (Landscape) */
+@media (orientation: landscape) and (max-height: 500px) {
+  .player-wrapper {
+    flex-direction: row; /* Elemente nebeneinander bei Querformat */
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  .info-section {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .progress-section {
+    flex: 2;
+  }
+  
+  .controls-section {
+    flex: 1;
+    gap: 1rem;
+  }
+}

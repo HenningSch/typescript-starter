@@ -1,0 +1,88 @@
+/* .music-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+    .home-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+} */
+
+.music-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  min-height: 12vh;
+  min-height: 12dvh;
+
+  .left-content {
+    position: relative;
+    width: 180px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  h2,
+  .home-btn {
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    opacity: 1;
+    transform: translateX(0);
+
+    &.hide {
+      opacity: 0;
+      transform: translateX(-20px);
+      pointer-events: none;
+    }
+  }
+
+  .home-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.5rem;
+    opacity: 0;
+    transform: translateX(20px);
+
+    &.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}

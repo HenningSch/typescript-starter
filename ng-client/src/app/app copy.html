@@ -1,0 +1,19 @@
+
+<input type="file" #fileInput (change)="setFile($event)">
+
+<button (click)="getHelloWorld()">Upload File</button>
+
+<!-- <div *ngIf="fileContent">
+  <h3>File Content:</h3>
+  <pre>{{ fileContent }}</pre>
+</div> -->
+
+<button (click)="getMidi()">Download to MidiFile</button>
+
+<button (click)="playMidi()">Play Midi</button>
+
+<div id="osmdCanvas"></div>
+
+<div #osmdContainer></div>
+
+<button (click)="playAudio()">Load and Play MusicXML</button>
