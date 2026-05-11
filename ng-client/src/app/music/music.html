@@ -40,7 +40,7 @@
 
   <!-- Progress Bar Bereich (Mitte) -->
   <div class="progress-section my-4">
-    <p-progressBar [value]="progress()" [showValue]="false"></p-progressBar>
+    <p-progressBar [value]="progress(dd)" [showValue]="false"></p-progressBar>
     <div class="flex justify-between text-xs mt-1">
       <span>{{ currentTime() | number:'1.0-0' }}s</span>
       <span>{{ duration() | number:'1.0-0' }}s</span>
